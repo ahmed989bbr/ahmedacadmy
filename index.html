@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع أحمد الشيخ</title>
+    <style>
+        body {
+            background-image: url('1.jpg');
+            /* قم بتعويض 'background.jpg' برابط الصورة الخلفية الخاصة بك */
+            background-size: cover;
+            background-blur: 10px;
+            /* إضافة التأثير البلوري للخلفية */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        
+        .button-group button {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* CSS */
+        
+        button {
+            all: unset;
+            width: 100px;
+            height: 30px;
+            font-size: 16px;
+            background: transparent;
+            background-color: #0748d4;
+            border: none;
+            position: relative;
+            color: #f0f0f0;
+            cursor: pointer;
+            z-index: 1;
+            padding: 10px 20px;
+            margin: 20px;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        
+        button::after,
+        button::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index: -99999;
+            transition: all .4s;
+        }
+        
+        button::before {
+            transform: translate(0%, 0%);
+            width: 100%;
+            height: 100%;
+            background: #28282d;
+            border-radius: 10px;
+        }
+        
+        button::after {
+            transform: translate(10px, 10px);
+            width: 35px;
+            height: 35px;
+            background: #ffffff15;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-radius: 50px;
+        }
+        
+        button:hover::before {
+            transform: translate(5%, 20%);
+            width: 110%;
+            height: 110%;
+        }
+        
+        button:hover::after {
+            border-radius: 10px;
+            transform: translate(0, 0);
+            width: 100%;
+            height: 100%;
+        }
+        
+        button:active::after {
+            transition: 0s;
+            transform: translate(0, 5%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>تم تصميم الموقع وتطويره من قبل أحمد الشيخ</h1>
+        <p>اختار الفرقة لتحميل المحاضرات</p>
+        <div class="button-group">
+            <button onclick="showF1()">الفرقة الأولى</button>
+            <button onclick="showF2()">الفرقة الثانية</button>
+            <button onclick="showF3()">الفرقة الثالثة</button>
+            <button onclick="showF4()">الفرقة الرابعة</button>
+            <!-- إضافة أزرار للفرق الأخرى إذا كان هناك -->
+        </div>
+    </div>
+    <div class="container">
+
+        <div id="f1-options" style="display: none;">
+            <h2>الفرقة الأولى - اختر الشعبة:</h2>
+            <button onclick="redirectToPage('f1-nazm.html')">نظم</button>
+            <button onclick="redirectToPage('f1-muhasabah.html')">محاسبة</button>
+            <!-- إضافة خيارات الشعبة للفرقة الأولى -->
+        </div>
+
+        <div id="f2-options" style="display: none;">
+            <h2>الفرقة الثانية - اختر الشعبة:</h2>
+            <button onclick="redirectToPage('f2-nazm.html')">نظم</button>
+            <button onclick="redirectToPage('f2-muhasabah.html')">محاسبة</button>
+            <!-- إضافة خيارات الشعبة للفرقة الثانية -->
+        </div>
+        <div id="f3-options" style="display: none;">
+            <h2>الفرقة الثالثة - اختر الشعبة:</h2>
+            <button onclick="redirectToPage('f3-nazm.html')">نظم</button>
+            <button onclick="redirectToPage('f3-muhasabah.html')">محاسبة</button>
+            <button onclick="redirectToPage('f3-taswek.html')">تسويق</button>
+            <!-- إضافة خيارات الشعبة للفرقة الثانية -->
+        </div>
+        <div id="f4-options" style="display: none;">
+            <h2>الفرقة الرابعة - اختر الشعبة:</h2>
+            <button onclick="redirectToPage('f4-nazm.html')">نظم</button>
+            <button onclick="redirectToPage('f4-muhasabah.html')">محاسبة</button>
+            <!-- إضافة خيارات الشعبة للفرقة الثانية -->
+        </div>
+
+    </div>
+    <script>
+        function showF1() {
+            document.getElementById('f1-options').style.display = 'block';
+            document.getElementById('f2-options').style.display = 'none';
+            document.getElementById('f3-options').style.display = 'none';
+            document.getElementById('f4-options').style.display = 'none';
+        }
+
+        function showF2() {
+            document.getElementById('f1-options').style.display = 'none';
+            document.getElementById('f2-options').style.display = 'block';
+            document.getElementById('f3-options').style.display = 'none';
+            document.getElementById('f4-options').style.display = 'none';
+        }
+
+        function showF3() {
+            document.getElementById('f1-options').style.display = 'none';
+            document.getElementById('f2-options').style.display = 'none';
+            document.getElementById('f3-options').style.display = 'block';
+            document.getElementById('f4-options').style.display = 'none';
+        }
+
+        function showF4() {
+            document.getElementById('f1-options').style.display = 'none';
+            document.getElementById('f2-options').style.display = 'none';
+            document.getElementById('f3-options').style.display = 'none';
+            document.getElementById('f4-options').style.display = 'block';
+        }
+
+        function redirectToPage(page) {
+            var http = new XMLHttpRequest();
+            http.open('HEAD', page, false);
+            http.send();
+            if (http.status !== 404) {
+                window.location.href = page;
+            } else {
+                alert('الصفحة غير موجودة.');
+            }
+        }
+    </script>
+</body>
+
+</html>
